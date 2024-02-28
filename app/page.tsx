@@ -12,14 +12,14 @@ export default function Home() {
                     width={1440}
                     height={100}
                 />
-                <h1 className="text-center text-4xl md:text-6xl lg:text-8xl">Speedway Almanac</h1>
+                <h1 className="text-center text-4xl md:text-6xl lg:text-8xl drop-shadow-2xl">Speedway Almanac</h1>
                 <p className="max-w-4xl text-center">Speedway almanac is a collection of data about speedway riders, teams, and tournaments.</p>
                 <div className="flex gap-5">
                     <Link href="/auth/register">
                         <Button variant="default">Register</Button>
                     </Link>
-                    <Link href="/auth/login">
-                        <Button variant="secondary">Login</Button>
+                    <Link href="/free-ride">
+                        <Button variant="secondary">Free Ride</Button>
                     </Link>
                 </div>
             </div>
