@@ -17,9 +17,10 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { FormError } from '@/components/form-error';
 import { FormSuccess } from '@/components/form-success';
+import { register } from '@/actions/register';
 
 const onSubmit = (data: z.infer<typeof RegisterSchema>) => {
-    console.log(data);
+    register(data);
 };
 
 export const RegisterForm = () => {

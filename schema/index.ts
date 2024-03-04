@@ -1,5 +1,4 @@
-import * as z from 'zod';
-
+import { z, TypeOf } from 'zod';
 export const LoginSchema = z.object({
     email: z.string().email(),
     password: z.string().min(6, {
@@ -19,3 +18,6 @@ export const RegisterSchema = z.object({
         message: 'Please confirm your password.',
     }),
 });
+
+export type LoginInput = TypeOf<typeof LoginSchema>;
+export type RegisterInput = TypeOf<typeof RegisterSchema>;
