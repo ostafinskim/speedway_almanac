@@ -7,17 +7,17 @@ import { hash } from 'bcryptjs';
 import { getUserByEmail } from '@/lib/user';
 
 export const register = async (data: z.infer<typeof RegisterSchema>) => {
-    const validated_data = RegisterSchema.safeParse(data);
+    const validatedData = RegisterSchema.safeParse(data);
 
-    if (!validated_data.success) {
+    if (!validatedData.success) {
         return { error: 'Invalid data. Try again.' };
     }
 
-    const { name, email, password } = validated_data.data;
-    const hashed_password = await hash(password, 10);
-    const email_exists = await getUserByEmail(email);
+    const { name, email, password } = validatedData.data;
+    const hashedPassword = await hash(password, 10);
+    const emailExists = await getUserByEmail(email);
 
-    if (email_exists) {
+    if (emailExists) {
         return { error: 'Email already exists.' };
     }
 
@@ -26,7 +26,7 @@ export const register = async (data: z.infer<typeof RegisterSchema>) => {
             data: {
                 name,
                 email,
-                password: hashed_password,
+                password: hashedPassword,
             },
         });
 
