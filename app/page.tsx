@@ -18,7 +18,6 @@ export default function Home() {
                     width={1440}
                     height={100}
                     priority
-                    className={'opacity-65'}
                 />
                 <h1 className="text-center text-4xl md:text-6xl lg:text-8xl drop-shadow-2xl">
                     Speedway Almanac

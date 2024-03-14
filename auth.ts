@@ -5,7 +5,7 @@ import prisma from '@/lib/prisma';
 import { getUserById } from '@/lib/user';
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-    pages:{
+    pages: {
         signIn: '/auth/login',
         error: '/auth/error',
     },
@@ -18,9 +18,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         },
     },
     callbacks: {
-        async signIn(params) {
-            const { user, account, profile } = params;
-            const existingUser = await getUserById(user.email ?? '');
+        async signIn({ user }) {
+            const existingUser = await getUserById(user?.id as string);
 
             if (!existingUser) {
                 return false;

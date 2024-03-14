@@ -3,9 +3,7 @@ import prisma from './prisma';
 export const getUserByEmail = async (email: string) => {
     try {
         return await prisma.user.findUnique({
-            where: {
-                email,
-            },
+            where: { email },
         });
     } catch (error: any) {
         console.error(error.message);
@@ -16,9 +14,7 @@ export const getUserByEmail = async (email: string) => {
 export const getUserById = async (id: string) => {
     try {
         return await prisma.user.findUnique({
-            where: {
-                id,
-            },
+            where: { id },
         });
     } catch (error: any) {
         console.error(error.message);
